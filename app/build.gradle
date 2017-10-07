@@ -58,6 +58,11 @@ dependencies {
     compile project(':data')
     compile project(':domain')
 
+    compile rootProject.ext.appLibraries.okhttp
+    compile rootProject.ext.appLibraries.retrofit
+    compile rootProject.ext.appLibraries.retrofitConverter
+    compile rootProject.ext.appLibraries.retrofitAdapter
+
     compile rootProject.ext.appLibraries.dagger
     annotationProcessor rootProject.ext.appLibraries.daggerCompiler
     compile rootProject.ext.appLibraries.rxJavaAndroid

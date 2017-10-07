@@ -2,6 +2,7 @@ package com.smartjump.app.executor;
 
 import android.support.annotation.NonNull;
 
+import com.smartjump.app.di.LifeScope;
 import com.smartjump.domain.ThreadExecutor;
 
 import java.util.concurrent.BlockingQueue;
@@ -10,12 +11,11 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 import javax.inject.Inject;
-import javax.inject.Singleton;
 
 /**
  *
  */
-@Singleton
+@LifeScope
 public class DefaultThreadExecutor implements ThreadExecutor {
 
     private final ThreadPoolExecutor threadPoolExecutor;

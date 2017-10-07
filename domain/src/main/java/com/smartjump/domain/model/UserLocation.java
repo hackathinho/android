@@ -1,15 +1,15 @@
-package com.smartjump.data.entity;
+package com.smartjump.domain.model;
 
 /**
  *
  */
-public class Location {
+public class UserLocation {
 
     private final float latitude;
     private final float longitude;
     private final float precision;
 
-    public Location(float latitude, float longitude, float precision) {
+    public UserLocation(float latitude, float longitude, float precision) {
         this.latitude = latitude;
         this.longitude = longitude;
         this.precision = precision;
@@ -23,7 +23,7 @@ public class Location {
         return longitude;
     }
 
-    public float getPrecission() {
+    public float getPrecision() {
         return precision;
     }
 }

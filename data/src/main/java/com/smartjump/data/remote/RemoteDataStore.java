@@ -11,11 +11,11 @@ import io.reactivex.Observable;
 /**
  *
  */
-public class RemoteDatastore implements DataSource {
+public class RemoteDataStore implements DataSource {
 
     private final SmartJumpApi smartJumpApi;
 
-    public RemoteDatastore(SmartJumpApi smartJumpApi) {
+    public RemoteDataStore(SmartJumpApi smartJumpApi) {
         this.smartJumpApi = smartJumpApi;
     }
 

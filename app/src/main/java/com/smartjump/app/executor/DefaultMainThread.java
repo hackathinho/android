@@ -1,10 +1,10 @@
 package com.smartjump.app.executor;
 
 
+import com.smartjump.app.di.LifeScope;
 import com.smartjump.domain.MainThread;
 
 import javax.inject.Inject;
-import javax.inject.Singleton;
 
 import io.reactivex.Scheduler;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -12,7 +12,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 /**
  *
  */
-@Singleton
+@LifeScope
 public class DefaultMainThread implements MainThread {
 
     @Inject

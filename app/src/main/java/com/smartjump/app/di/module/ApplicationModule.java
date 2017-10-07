@@ -1,12 +1,11 @@
 package com.smartjump.app.di.module;
 
 import com.smartjump.app.SmartJumpApplication;
+import com.smartjump.app.di.LifeScope;
 import com.smartjump.app.executor.DefaultMainThread;
 import com.smartjump.app.executor.DefaultThreadExecutor;
 import com.smartjump.domain.MainThread;
 import com.smartjump.domain.ThreadExecutor;
-
-import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
@@ -14,7 +13,7 @@ import dagger.Provides;
 /**
  *
  */
-@Module
+@Module(includes = NetworkModule.class)
 public class ApplicationModule {
 
     private final SmartJumpApplication application;
@@ -23,13 +22,13 @@ public class ApplicationModule {
         this.application = application;
     }
 
-    @Singleton
+    @LifeScope
     @Provides
     MainThread provideMainThread(DefaultMainThread mainThread) {
         return mainThread;
     }
 
-    @Singleton
+    @LifeScope
     @Provides
     ThreadExecutor provideThreadExecutor(DefaultThreadExecutor threadExecutor) {
         return threadExecutor;
