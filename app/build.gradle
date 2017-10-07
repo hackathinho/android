@@ -57,6 +57,8 @@ dependencies {
 
     compile project(':data')
 
+    compile rootProject.ext.appLibraries.dagger
+    annotationProcessor rootProject.ext.appLibraries.daggerCompiler
     compile rootProject.ext.appLibraries.supportAppCompat
     compile rootProject.ext.appLibraries.constraintLayout
     compile rootProject.ext.appLibraries.timber
