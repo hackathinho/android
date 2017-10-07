@@ -30,4 +30,8 @@ public abstract class SmartJumpApplication extends Application {
     *
     */
     abstract void initialize();
+
+    public ApplicationComponent getApplicationComponent() {
+        return applicationComponent;
+    }
 }

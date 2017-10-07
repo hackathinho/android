@@ -4,6 +4,7 @@ import com.smartjump.app.SmartJumpApplication;
 import com.smartjump.app.di.LifeScope;
 import com.smartjump.app.executor.DefaultMainThread;
 import com.smartjump.app.executor.DefaultThreadExecutor;
+import com.smartjump.app.navigation.Navigator;
 import com.smartjump.domain.MainThread;
 import com.smartjump.domain.ThreadExecutor;
 
@@ -32,5 +33,11 @@ public class ApplicationModule {
     @Provides
     ThreadExecutor provideThreadExecutor(DefaultThreadExecutor threadExecutor) {
         return threadExecutor;
+    }
+
+    @LifeScope
+    @Provides
+    Navigator provideNavigation(SmartJumpApplication application) {
+        return new Navigator(application);
     }
 }
