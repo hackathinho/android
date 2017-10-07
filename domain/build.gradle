@@ -4,6 +4,7 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 
     compile rootProject.ext.domainLibraries.rxjava
+    compile rootProject.ext.domainLibraries.dagger
 }
 
 sourceCompatibility = "1.7"

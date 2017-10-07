@@ -46,7 +46,8 @@ ext {
     ]
 
     domainLibraries = [
-            rxjava: "io.reactivex.rxjava2:rxjava:${rxJavaVersion}"
+            rxjava: "io.reactivex.rxjava2:rxjava:${rxJavaVersion}",
+            dagger: "com.google.dagger:dagger:${daggerVersion}"
     ]
 
     dataLibraries = [
