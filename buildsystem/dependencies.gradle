@@ -10,6 +10,7 @@ ext {
     daggerVersion = "2.11"
     daggerCompilerVersion = "2.11"
 
+    androidRxJava = "2.0.1"
     rxJavaVersion = "2.1.3"
     retrofitVersion = "2.3.0"
     retrofitConverterVersion = "2.3.0"
@@ -28,13 +29,19 @@ ext {
             leakCanary          : "com.squareup.leakcanary:leakcanary-android:${leakCanaryVersion}",
             ossLicenses         : "com.google.android.gms:play-services-oss-licenses:${ossLicensesVersion}",
             dagger              : "com.google.dagger:dagger:${daggerVersion}",
-            daggerCompiler      : "com.google.dagger:dagger-compiler:${daggerCompilerVersion}"
+            rxJavaAndroid       : "io.reactivex.rxjava2:rxandroid:${androidRxJava}",
+            daggerCompiler      : "com.google.dagger:dagger-compiler:${daggerCompilerVersion}",
+            rxjava              : "io.reactivex.rxjava2:rxjava:${rxJavaVersion}"
     ]
 
     appTest = [
             junit   : "junit:junit:${junitVersion}",
             espresso: "com.android.support.test.espresso:espresso-core:${espressoVersion}",
             mockito : "org.mockito:mockito-core:${mockitoVersion}"
+    ]
+
+    domainLibraries = [
+            rxjava: "io.reactivex.rxjava2:rxjava:${rxJavaVersion}"
     ]
 
     dataLibraries = [
