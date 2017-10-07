@@ -9,7 +9,6 @@ import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 
 import com.smartjump.app.R;
-import com.smartjump.app.SmartJumpApplication;
 import com.smartjump.app.service.SmartJumpService;
 
 /**
@@ -35,7 +34,7 @@ public class SmartJumpActivity extends BaseActivity {
             requestPermissions(perms, REQUEST_CODE);
         } else {
             startService();
-            hideApplication();
+            //hideApplication();
             finish();
         }
     }
@@ -62,7 +61,7 @@ public class SmartJumpActivity extends BaseActivity {
                 if (permission.equals(Manifest.permission.ACCESS_FINE_LOCATION) && grantResult
                         == PackageManager.PERMISSION_GRANTED) {
                     startService();
-                    hideApplication();
+                    //hideApplication();
                     break;
                 }
             }
@@ -73,9 +72,5 @@ public class SmartJumpActivity extends BaseActivity {
     private void startService() {
         final Intent intent = new Intent(this, SmartJumpService.class);
         startService(intent);
-    }
-
-    private SmartJumpApplication application() {
-        return (SmartJumpApplication) getApplication();
     }
 }

@@ -14,5 +14,7 @@ public class NotificationResultActivity extends BaseActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notification_result);
+
+        application().getApplicationComponent().inject(this);
     }
 }

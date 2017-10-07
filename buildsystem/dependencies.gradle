@@ -30,13 +30,14 @@ ext {
             leakCanary          : "com.squareup.leakcanary:leakcanary-android:${leakCanaryVersion}",
             ossLicenses         : "com.google.android.gms:play-services-oss-licenses:${ossLicensesVersion}",
             dagger              : "com.google.dagger:dagger:${daggerVersion}",
-            rxJavaAndroid       : "io.reactivex.rxjava2:rxandroid:${androidRxJava}",
-            daggerCompiler      : "com.google.dagger:dagger-compiler:${daggerCompilerVersion}",
-            rxjava              : "io.reactivex.rxjava2:rxjava:${rxJavaVersion}",
-            retrofit            : "com.squareup.retrofit2:retrofit:${retrofitVersion}",
-            retrofitConverter   : "com.squareup.retrofit2:converter-gson:${retrofitConverterVersion}",
-            retrofitAdapter     : "com.squareup.retrofit2:adapter-rxjava2:${retrofitAdapterVersion}",
-            okhttp              : "com.squareup.okhttp3:okhttp:${okhttpVersion}"
+            rxJavaAndroid    : "io.reactivex.rxjava2:rxandroid:${androidRxJava}",
+            daggerCompiler   : "com.google.dagger:dagger-compiler:${daggerCompilerVersion}",
+            rxjava           : "io.reactivex.rxjava2:rxjava:${rxJavaVersion}",
+            retrofit         : "com.squareup.retrofit2:retrofit:${retrofitVersion}",
+            retrofitConverter: "com.squareup.retrofit2:converter-gson:${retrofitConverterVersion}",
+            retrofitAdapter  : "com.squareup.retrofit2:adapter-rxjava2:${retrofitAdapterVersion}",
+            okhttp           : "com.squareup.okhttp3:okhttp:${okhttpVersion}",
+            recyclerView     : "com.android.support:recyclerview-v7:${appCompatVersion}"
     ]
 
     appTest = [

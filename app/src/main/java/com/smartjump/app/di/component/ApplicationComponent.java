@@ -1,5 +1,6 @@
 package com.smartjump.app.di.component;
 
+import com.smartjump.app.activity.NotificationResultActivity;
 import com.smartjump.app.activity.SmartJumpActivity;
 import com.smartjump.app.di.LifeScope;
 import com.smartjump.app.di.module.ApplicationModule;
@@ -18,6 +19,8 @@ import dagger.Component;
 public interface ApplicationComponent {
 
     void inject(SmartJumpActivity activity);
+
+    void inject(NotificationResultActivity activity);
 
     void inject(SmartJumpService service);
 

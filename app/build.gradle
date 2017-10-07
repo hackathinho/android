@@ -58,6 +58,7 @@ dependencies {
     compile project(':data')
     compile project(':domain')
 
+    compile rootProject.ext.appLibraries.recyclerView
     compile rootProject.ext.appLibraries.okhttp
     compile rootProject.ext.appLibraries.retrofit
     compile rootProject.ext.appLibraries.retrofitConverter

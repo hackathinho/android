@@ -1,9 +1,11 @@
 package com.smartjump.domain.model;
 
+import java.io.Serializable;
+
 /**
  *
  */
-public abstract class Jump {
+public abstract class Jump implements Serializable {
 
     private final int id;
 
