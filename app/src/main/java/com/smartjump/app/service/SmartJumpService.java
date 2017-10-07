@@ -14,6 +14,9 @@ import com.smartjump.app.R;
 import com.smartjump.app.SmartJumpApplication;
 import com.smartjump.app.activity.NotificationResultActivity;
 import com.smartjump.app.presenter.LocationUpdates;
+import com.smartjump.app.presenter.ServicePresenter;
+
+import javax.inject.Inject;
 
 /**
  *
@@ -25,6 +28,9 @@ public class SmartJumpService extends Service implements LocationUpdates.Locatio
     private static final int REQUEST_CODE = 189;
 
     private LocationUpdates locationUpdates;
+
+    @Inject
+    protected ServicePresenter servicePresenter;
 
     @Override
     public void onCreate() {
@@ -73,6 +79,7 @@ public class SmartJumpService extends Service implements LocationUpdates.Locatio
 
     @Override
     public void onLocation(Location location) {
+        servicePresenter.getFrom(location);
         updateNotification();
     }
 

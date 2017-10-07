@@ -3,6 +3,7 @@ package com.smartjump.app.presenter;
 import android.location.Location;
 import android.util.Log;
 
+import com.smartjump.app.di.LifeScope;
 import com.smartjump.domain.interactor.GetNearStations;
 import com.smartjump.domain.model.Jump;
 import com.smartjump.domain.model.UserLocation;
@@ -17,13 +18,14 @@ import io.reactivex.observers.DisposableObserver;
 /**
  *
  */
+@LifeScope
 public class ServicePresenter {
     private static final String TAG = ServicePresenter.class.getSimpleName();
 
     private final GetNearStations getNearStations;
 
     @Inject
-    ServicePresenter(GetNearStations getNearStations) {
+    public ServicePresenter(GetNearStations getNearStations) {
         this.getNearStations = getNearStations;
     }
 

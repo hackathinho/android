@@ -1,12 +1,12 @@
 package com.smartjump.app.di.module;
 
-import com.smartjump.app.SmartJumpApplication;
+import android.content.Context;
+
+import com.smartjump.app.di.LifeScope;
 import com.smartjump.app.repo.DefaultDataRepository;
 import com.smartjump.data.remote.RemoteDataStore;
 import com.smartjump.data.remote.SmartJumpApi;
 import com.smartjump.domain.DataRepository;
-
-import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
@@ -28,14 +28,14 @@ public class NetworkModule {
         this.baseUrl = baseUrl;
     }
 
-    @Singleton
+    @LifeScope
     @Provides
-    Cache provideCache(SmartJumpApplication application) {
+    Cache provideCache(Context application) {
         final int cacheSize = 1024 * 1024 * 5;
         return new Cache(application.getCacheDir(), cacheSize);
     }
 
-    @Singleton
+    @LifeScope
     @Provides
     OkHttpClient provideOkHttpClient(Cache cache) {
         return new OkHttpClient.Builder()
@@ -43,7 +43,7 @@ public class NetworkModule {
                 .build();
     }
 
-    @Singleton
+    @LifeScope
     @Provides
     Retrofit provideRetrofit(OkHttpClient client) {
         return new Retrofit.Builder()
@@ -54,19 +54,19 @@ public class NetworkModule {
                 .build();
     }
 
-    @Singleton
+    @LifeScope
     @Provides
     SmartJumpApi provideApi(Retrofit retrofit) {
         return retrofit.create(SmartJumpApi.class);
     }
 
-    @Singleton
+    @LifeScope
     @Provides
     RemoteDataStore provideRemoteDataStore(SmartJumpApi smartJumpApi) {
         return new RemoteDataStore(smartJumpApi);
     }
 
-    @Singleton
+    @LifeScope
     @Provides
     DataRepository provideDataRepository(RemoteDataStore remoteDataStore) {
         return new DefaultDataRepository(remoteDataStore);

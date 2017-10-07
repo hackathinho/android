@@ -21,6 +21,6 @@ public class RemoteDataStore implements DataSource {
 
     @Override
     public Observable<List<Station>> sendLocation(Location location) {
-        return null;
+        return smartJumpApi.sendLocation(location);
     }
 }

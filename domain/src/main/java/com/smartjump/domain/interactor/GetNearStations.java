@@ -9,14 +9,12 @@ import com.smartjump.domain.model.UserLocation;
 import java.util.List;
 
 import javax.inject.Inject;
-import javax.inject.Singleton;
 
 import io.reactivex.Observable;
 
 /**
  *
  */
-@Singleton
 public class GetNearStations extends BaseInteractor<List<Jump>, UserLocation> {
 
     private final DataRepository dataRepository;

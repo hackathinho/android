@@ -1,12 +1,16 @@
 package com.smartjump.app.di.module;
 
+import android.content.Context;
+
 import com.smartjump.app.SmartJumpApplication;
 import com.smartjump.app.di.LifeScope;
 import com.smartjump.app.executor.DefaultMainThread;
 import com.smartjump.app.executor.DefaultThreadExecutor;
 import com.smartjump.app.navigation.Navigator;
+import com.smartjump.app.presenter.ServicePresenter;
 import com.smartjump.domain.MainThread;
 import com.smartjump.domain.ThreadExecutor;
+import com.smartjump.domain.interactor.GetNearStations;
 
 import dagger.Module;
 import dagger.Provides;
@@ -39,6 +43,18 @@ public class ApplicationModule {
     @Provides
     Navigator provideNavigation(SmartJumpApplication application) {
         return new Navigator(application);
+    }
+
+    @LifeScope
+    @Provides
+    ServicePresenter provideServicePresenter(GetNearStations getNearStations) {
+        return new ServicePresenter(getNearStations);
+    }
+
+    @LifeScope
+    @Provides
+    Context provideContext() {
+        return application.getApplicationContext();
     }
 
     public SmartJumpApplication getApplication() {
