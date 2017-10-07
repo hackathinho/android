@@ -1,15 +1,16 @@
-package com.smartjump.app;
+package com.smartjump.app.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 
+import com.smartjump.app.R;
+import com.smartjump.app.SmartJumpApplication;
 import com.smartjump.app.service.SmartJumpService;
 
 /**
  *
  */
-public class SmartJumpActivity extends AppCompatActivity {
+public class SmartJumpActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
