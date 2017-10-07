@@ -15,13 +15,18 @@ import com.smartjump.app.SmartJumpApplication;
 import com.smartjump.app.activity.NotificationResultActivity;
 import com.smartjump.app.presenter.LocationUpdates;
 import com.smartjump.app.presenter.ServicePresenter;
+import com.smartjump.domain.model.BicycleStation;
+import com.smartjump.domain.model.BusStation;
+
+import java.util.List;
 
 import javax.inject.Inject;
 
 /**
  *
  */
-public class SmartJumpService extends Service implements LocationUpdates.LocationCallback {
+public class SmartJumpService extends Service implements LocationUpdates.LocationCallback,
+        ServicePresenter.ResultCallback {
     private static final String TAG = SmartJumpService.class.getSimpleName();
 
     private static final int NOTIFICATION_ID = 981;
@@ -38,6 +43,7 @@ public class SmartJumpService extends Service implements LocationUpdates.Locatio
         Log.d(TAG, "Start service in foreground...");
 
         application().getApplicationComponent().inject(this);
+        servicePresenter.setResultCallback(this);
 
         // start location
         locationUpdates = new LocationUpdates(this, this);
@@ -80,12 +86,11 @@ public class SmartJumpService extends Service implements LocationUpdates.Locatio
     @Override
     public void onLocation(Location location) {
         servicePresenter.getFrom(location);
-        updateNotification();
     }
 
-    private void updateNotification() {
+    private void updateNotification(String msg) {
         Notification notification = new NotificationCompat.Builder(this)
-                .setContentTitle(getString(R.string.title_location_found))
+                .setContentTitle(msg)
                 .setContentIntent(openWhenClick())
                 .setSmallIcon(R.drawable.bus)
                 .build();
@@ -95,5 +100,12 @@ public class SmartJumpService extends Service implements LocationUpdates.Locatio
     @Override
     public void onMissingPermission() {
 
+    }
+
+    @Override
+    public void onJumpsFound(List<BusStation> busStations, List<BicycleStation> bicycleStations) {
+        String msg = String.format("Se han encontrado %s parades de bus y %s de bici cerca de ti",
+                busStations.size(), bicycleStations.size());
+        updateNotification(msg);
     }
 }

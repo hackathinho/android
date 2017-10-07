@@ -56,13 +56,13 @@ public class DefaultDataRepository implements DataRepository {
 
     private Jump parseStationType(Station station) {
         String stationType = station.getType();
-        if (stationType.equals("bus")) {
+        if ("bus".equals(stationType)) {
             BusStation busStation = new BusStation(station.getId(), station.getLatitude(),
-                    station.getLongitude(), station.getDistance());
+                    station.getLongitude(), station.getDistance(), station.getInfo().getAddress());
             return busStation;
-        } else if (stationType.equals("bike")) {
+        } else if ("bike".equals(stationType)) {
             BicycleStation bikeStation = new BicycleStation(station.getId(), station.getLatitude(),
-                    station.getLongitude(), station.getDistance());
+                    station.getLongitude(), station.getDistance(), station.getInfo().getAddress());
             return bikeStation;
         } else {
             return null;
