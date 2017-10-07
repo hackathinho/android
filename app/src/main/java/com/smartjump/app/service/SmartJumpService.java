@@ -10,6 +10,7 @@ import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
 import com.smartjump.app.R;
+import com.smartjump.app.SmartJumpApplication;
 import com.smartjump.app.activity.NotificationResultActivity;
 
 /**
@@ -26,6 +27,8 @@ public class SmartJumpService extends Service {
         super.onCreate();
         Log.d(TAG, "Start service in foreground...");
 
+        application().getApplicationComponent().inject(this);
+
         Notification notification = new NotificationCompat.Builder(this)
                 .setContentIntent(openWhenClick())
                 .setSmallIcon(R.drawable.bus)
@@ -37,6 +40,10 @@ public class SmartJumpService extends Service {
         final Intent intent = new Intent(this, NotificationResultActivity.class);
         return PendingIntent.getActivity(
                 this, REQUEST_CODE, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+    }
+
+    private SmartJumpApplication application() {
+        return (SmartJumpApplication) getApplication();
     }
 
     @Nullable

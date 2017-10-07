@@ -40,4 +40,8 @@ public class ApplicationModule {
     Navigator provideNavigation(SmartJumpApplication application) {
         return new Navigator(application);
     }
+
+    public SmartJumpApplication getApplication() {
+        return application;
+    }
 }
