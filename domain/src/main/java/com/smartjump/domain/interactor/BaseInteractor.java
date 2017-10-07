@@ -26,7 +26,9 @@ abstract class BaseInteractor<T, P> {
     abstract Observable<T> result(P params);
 
     public void execute(DisposableObserver<T> subscriber, P params) {
-        Observable<T> observable = result(params).subscribeOn(mainThread.scheduler()).observeOn(Schedulers.from(threadExecutor));
+        Observable<T> observable = result(params)
+                .subscribeOn(Schedulers.from(threadExecutor))
+                .observeOn(mainThread.scheduler());
         compositeDisposable.add(observable.subscribeWith(subscriber));
     }
 

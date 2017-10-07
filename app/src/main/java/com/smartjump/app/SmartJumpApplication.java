@@ -20,7 +20,7 @@ public abstract class SmartJumpApplication extends Application {
 
         applicationComponent = DaggerApplicationComponent.builder()
                 .applicationModule(new ApplicationModule(this))
-                .networkModule(new NetworkModule("http://smartjump.ovh:5000/"))
+                .networkModule(new NetworkModule("http://smartjump.ovh:5001/"))
                 .build();
 
         initialize();
