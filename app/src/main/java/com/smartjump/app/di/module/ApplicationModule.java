@@ -7,4 +7,8 @@ import dagger.Module;
  */
 @Module
 public class ApplicationModule {
+
+    public ApplicationModule() {
+        // required empty
+    }
 }
