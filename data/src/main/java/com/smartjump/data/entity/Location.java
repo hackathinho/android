@@ -5,25 +5,25 @@ package com.smartjump.data.entity;
  */
 public class Location {
 
-    private final float latitude;
-    private final float longitude;
-    private final float precision;
+    private final double latitude;
+    private final double longitude;
+    private final double precision;
 
-    public Location(float latitude, float longitude, float precision) {
+    public Location(double latitude, double longitude, double precision) {
         this.latitude = latitude;
         this.longitude = longitude;
         this.precision = precision;
     }
 
-    public float getLatitude() {
+    public double getLatitude() {
         return latitude;
     }
 
-    public float getLongitude() {
+    public double getLongitude() {
         return longitude;
     }
 
-    public float getPrecission() {
+    public double getPrecission() {
         return precision;
     }
 }

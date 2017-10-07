@@ -5,25 +5,25 @@ package com.smartjump.domain.model;
  */
 public class UserLocation {
 
-    private final float latitude;
-    private final float longitude;
-    private final float precision;
+    private final double latitude;
+    private final double longitude;
+    private final double precision;
 
-    public UserLocation(float latitude, float longitude, float precision) {
+    public UserLocation(double latitude, double longitude, float precision) {
         this.latitude = latitude;
         this.longitude = longitude;
         this.precision = precision;
     }
 
-    public float getLatitude() {
+    public double getLatitude() {
         return latitude;
     }
 
-    public float getLongitude() {
+    public double getLongitude() {
         return longitude;
     }
 
-    public float getPrecision() {
+    public double getPrecision() {
         return precision;
     }
 }

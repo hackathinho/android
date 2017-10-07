@@ -3,8 +3,6 @@ package com.smartjump.domain.interactor;
 import com.smartjump.domain.MainThread;
 import com.smartjump.domain.ThreadExecutor;
 
-import javax.inject.Inject;
-
 import io.reactivex.Observable;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.observers.DisposableObserver;
@@ -19,7 +17,6 @@ abstract class BaseInteractor<T, P> {
     private final ThreadExecutor threadExecutor;
     private final CompositeDisposable compositeDisposable;
 
-    @Inject
     BaseInteractor(MainThread mainThread, ThreadExecutor threadExecutor) {
         this.mainThread = mainThread;
         this.threadExecutor = threadExecutor;

@@ -73,7 +73,16 @@ public class SmartJumpService extends Service implements LocationUpdates.Locatio
 
     @Override
     public void onLocation(Location location) {
-        // TODO
+        updateNotification();
+    }
+
+    private void updateNotification() {
+        Notification notification = new NotificationCompat.Builder(this)
+                .setContentTitle(getString(R.string.title_location_found))
+                .setContentIntent(openWhenClick())
+                .setSmallIcon(R.drawable.bus)
+                .build();
+        startForeground(NOTIFICATION_ID, notification);
     }
 
     @Override

@@ -12,6 +12,9 @@ import com.smartjump.domain.model.UserLocation;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
 import io.reactivex.Observable;
 import io.reactivex.ObservableSource;
 import io.reactivex.annotations.NonNull;
@@ -20,10 +23,12 @@ import io.reactivex.functions.Function;
 /**
  *
  */
+@Singleton
 public class DefaultDataRepository implements DataRepository {
 
     private final RemoteDataStore remoteDataStore;
 
+    @Inject
     public DefaultDataRepository(RemoteDataStore remoteDataStore) {
         this.remoteDataStore = remoteDataStore;
     }

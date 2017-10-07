@@ -14,7 +14,7 @@ import dagger.Provides;
 /**
  *
  */
-@Module(includes = NetworkModule.class)
+@Module
 public class ApplicationModule {
 
     private final SmartJumpApplication application;

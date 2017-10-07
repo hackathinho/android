@@ -1,8 +1,8 @@
 package com.smartjump.app.presenter;
 
+import android.location.Location;
 import android.util.Log;
 
-import com.smartjump.app.di.LifeScope;
 import com.smartjump.domain.interactor.GetNearStations;
 import com.smartjump.domain.model.Jump;
 import com.smartjump.domain.model.UserLocation;
@@ -17,7 +17,6 @@ import io.reactivex.observers.DisposableObserver;
 /**
  *
  */
-@LifeScope
 public class ServicePresenter {
     private static final String TAG = ServicePresenter.class.getSimpleName();
 
@@ -28,7 +27,7 @@ public class ServicePresenter {
         this.getNearStations = getNearStations;
     }
 
-    public void get() {
+    public void getFrom(Location location) {
         getNearStations.execute(new DisposableObserver<List<Jump>>() {
             @Override
             public void onNext(@NonNull List<Jump> jumps) {
@@ -44,6 +43,6 @@ public class ServicePresenter {
             public void onComplete() {
                 Log.d(TAG, "onComplete: ");
             }
-        }, new UserLocation(12.23f, 23.23f, 3.23f));
+        }, new UserLocation(location.getLatitude(), location.getLongitude(), 100f));
     }
 }

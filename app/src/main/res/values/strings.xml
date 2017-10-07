@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Smart Jump</string>
     <string name="title_notification_search">Buscando posición de usuario...</string>
+    <string name="title_location_found">Se han encontrado 5 paradas cerca de ti</string>
 </resources>
